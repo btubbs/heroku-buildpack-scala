@@ -30,6 +30,7 @@ echo "curling jvm from `pwd`"
 curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz -o /tmp/jvm-buildpack-common.tar.gz
 
 echo `ls`
+touch blah.txt
 echo "untarring"
 tar xzvf /tmp/jvm-buildpack-common.tar.gz
 . bin/util
