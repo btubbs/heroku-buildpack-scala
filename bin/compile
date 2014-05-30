@@ -28,7 +28,10 @@ mv $APP_BUILD_DIR $BUILD_DIR
 
 echo "curling jvm from `pwd`"
 ls
-curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz | tar xzv
+curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz -o jvm-buildpack-common.tar.gz
+
+echo "untarring"
+tar xzvf jvm-buildpack-common.tar.gz
 . bin/util
 . bin/java
 
