@@ -2,11 +2,15 @@
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
 # fail fast
+
+echo "running bin/compile"
 set -e
 
 BP_DIR=$(cd $(dirname $0)/..; pwd) # absolute path
 BIN_DIR=$BP_DIR/bin
 OPT_DIR=$BP_DIR/opt
+
+echo "sourcing common"
 . $BIN_DIR/common
 
 # parse args
@@ -15,9 +19,11 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 # Move app to a static build dir to keep paths the same between builds
+echo "moving app to /tmp"
 BUILD_DIR="/tmp/scala_buildpack_build_dir"
 mv $APP_BUILD_DIR $BUILD_DIR
 
+echo "curling jvm"
 curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz | tar xz
 . bin/util
 . bin/java
@@ -25,10 +31,12 @@ curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack
 export_env_dir $ENV_DIR
 
 #create the cache dir if it doesn't exist
+echo "making cache dir"
 mkdir -p $CACHE_DIR
 
 # create default system.properties 
 if [ ! -f ${BUILD_DIR}/system.properties ]; then
+  echo "making system.properties"
   echo "java.runtime.version=1.6" > ${BUILD_DIR}/system.properties
 fi
 
