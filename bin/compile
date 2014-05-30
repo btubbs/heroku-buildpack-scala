@@ -27,6 +27,7 @@ BUILD_DIR="/tmp/scala_buildpack_build_dir"
 mv $APP_BUILD_DIR $BUILD_DIR
 
 echo "curling jvm from `pwd`"
+ls
 curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz | tar xzv
 . bin/util
 . bin/java
