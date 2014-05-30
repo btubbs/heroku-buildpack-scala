@@ -9,7 +9,7 @@ set -e
 BP_DIR=$(cd $(dirname $0)/..; pwd) # absolute path
 echo "bpdir $BP_DIR"
 BIN_DIR=$BP_DIR/bin
-echo "bindir $IN_DIR"
+echo "bindir $BIN_DIR"
 OPT_DIR=$BP_DIR/opt
 echo "optdir $OPT_DIR"
 
