@@ -22,7 +22,7 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 # Move app to a static build dir to keep paths the same between builds
-echo "moving app to /tmp"
+echo "moving $APP_BUILD_DIR to $BUILD_DIR"
 BUILD_DIR="/tmp/scala_buildpack_build_dir"
 mv $APP_BUILD_DIR $BUILD_DIR
 
