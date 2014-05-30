@@ -26,7 +26,7 @@ echo "moving app to /tmp"
 BUILD_DIR="/tmp/scala_buildpack_build_dir"
 mv $APP_BUILD_DIR $BUILD_DIR
 
-cd /tmp
+touch blah.txt
 
 echo "curling jvm from `pwd`"
 curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz -o /tmp/jvm-buildpack-common.tar.gz
